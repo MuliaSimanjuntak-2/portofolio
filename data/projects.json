@@ -28,11 +28,11 @@
     ],
     "hasDetailPage": true,
     "screenshots": {
-      "main": "/images/projects/ecommerce/main-interface.jpg",
-      "features": "/images/projects/ecommerce/features-showcase.jpg",
+      "main": "/images/projects/ecommerce/main_interface.jpeg",
+      "features": "/images/projects/ecommerce/about-barista.jpeg",
       "additional": [
-        "/images/projects/ecommerce/dashboard.jpg",
-        "/images/projects/ecommerce/checkout-process.jpg",
+        "/images/projects/ecommerce/maps.jpeg",
+        "/images/projects/ecommerce/nota.jpeg",
         "/images/projects/ecommerce/product-detail.jpg"
       ]
     }
