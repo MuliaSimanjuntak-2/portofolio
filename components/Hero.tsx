@@ -11,61 +11,71 @@ const Hero = () => {
           {/* Left Column - Text Content */}
           <div className="space-y-8">
             <div className="space-y-6">
-              <div className="space-y-2">
-                <p className="text-royal font-medium text-lg">
-                  Halo, saya
-                </p>
-                <h1 className="font-display font-bold text-3xl md:text-4xl lg:text-5xl text-white leading-tight">
-                  Mulia Simanjuntak
+              <div className="space-y-4">
+                <div className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-royal/20 to-royal/10 border border-royal/30 rounded-full backdrop-blur-sm hover:from-royal/30 hover:to-royal/20 transition-all duration-300 group">
+                  <span className="text-royal font-semibold text-lg">👋 Hello, I'm</span>
+                  <div className="ml-3 w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+                </div>
+                
+                <h1 className="font-display font-bold text-4xl md:text-5xl lg:text-6xl text-white leading-tight">
+                  <span className="bg-gradient-to-r from-white via-white to-gray-300 bg-clip-text text-transparent">
+                    Mulia
+                  </span>
+                  <br />
+                  <span className="bg-gradient-to-r from-royal via-blue-400 to-royal-light bg-clip-text text-transparent">
+                    Simanjuntak
+                  </span>
                 </h1>
-                <p className="text-xl md:text-1.5xl text-gray-300 font-medium">
-                  Student, Web Developer, and Project Manager
-                </p>
+                
+                <div className="space-y-3">
+                  <h2 className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-royal to-royal-light bg-clip-text text-transparent">
+                    Student & Web Developer
+                  </h2>
+                  <div className="w-24 h-1 bg-gradient-to-r from-royal to-royal-light rounded-full"></div>
+                </div>
               </div>
               
-              <p className="text-lg text-gray-400 leading-relaxed max-w-md">
+              <p className="text-lg text-gray-300 leading-relaxed max-w-lg">
                 I am a Software Engineering student focused on web development with a strong 
-                interest in fintech and leveraging technology to improve business efficiency. 
-                I have experience as a Web Developer and Project Manager in various application-based 
-                and collaborative projects. I enjoy building digital solutions that are user-friendly, 
-                well-structured, and high-performance. Let’s collaborate to bring impactful innovation to life!
+                interest in <span className="text-royal font-semibold">fintech</span> and leveraging technology to improve business efficiency. 
+                I enjoy building <span className="text-royal font-semibold">digital solutions</span> that are user-friendly, 
+                well-structured, and high-performance. Let's collaborate to bring impactful innovation to life!
               </p>
             </div>
 
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex flex-col sm:flex-row gap-6">
               <Link
                 href="#projects"
-                className="inline-flex items-center justify-center px-8 py-4 bg-royal text-white font-semibold rounded-lg hover:bg-royal-dark transition-all duration-200 hover:scale-105 shadow-lg hover:shadow-xl"
+                className="group relative inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-royal to-royal-dark text-white font-semibold rounded-xl overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-royal/25"
               >
-                Lihat Projects
-                <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                <div className="absolute inset-0 bg-gradient-to-r from-royal-dark to-royal opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <span className="relative z-10">View Projects</span>
+                <svg className="relative z-10 ml-2 w-5 h-5 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
               </Link>
               
               <Link
-                href="/resume.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center px-8 py-4 border-2 border-royal text-royal font-semibold rounded-lg hover:bg-royal hover:text-white transition-all duration-200 hover:scale-105"
+                href="#contact"
+                className="group relative inline-flex items-center justify-center px-8 py-4 border-2 border-royal/50 text-royal font-semibold rounded-xl backdrop-blur-sm bg-royal/5 hover:bg-royal hover:text-white hover:border-royal transition-all duration-300 hover:scale-105"
               >
-                Download CV
-                <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                <span className="relative z-10">Get In Touch</span>
+                <svg className="relative z-10 ml-2 w-5 h-5 transform group-hover:scale-110 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
                 </svg>
               </Link>
             </div>
 
             {/* Social Links */}
-            <div className="flex items-center space-x-6 pt-4">
-              <span className="text-gray-400 font-medium">Follow me:</span>
+            <div className="flex items-center space-x-6 pt-6">
+              <span className="text-gray-400 font-medium">Connect with me:</span>
               <div className="flex space-x-4">
                 <Link
                   href="https://github.com/MuliaSimanjuntak"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-gray-400 hover:text-royal transition-colors"
+                  className="p-3 bg-gray-800/50 text-gray-400 hover:text-royal hover:bg-royal/20 rounded-xl transition-all duration-300 hover:scale-110 backdrop-blur-sm"
                   aria-label="GitHub"
                 >
                   <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -77,7 +87,7 @@ const Hero = () => {
                   href="https://linkedin.com/in/muliasimanjuntak"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-gray-400 hover:text-royal transition-colors"
+                  className="p-3 bg-gray-800/50 text-gray-400 hover:text-royal hover:bg-royal/20 rounded-xl transition-all duration-300 hover:scale-110 backdrop-blur-sm"
                   aria-label="LinkedIn"
                 >
                   <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -86,8 +96,8 @@ const Hero = () => {
                 </Link>
                 
                 <Link
-                  href="mailto:mulia@email.com"
-                  className="text-gray-400 hover:text-royal transition-colors"
+                  href="mailto:muliachristiangomgompsimanjuntak@mail.ugm.ac.id"
+                  className="p-3 bg-gray-800/50 text-gray-400 hover:text-royal hover:bg-royal/20 rounded-xl transition-all duration-300 hover:scale-110 backdrop-blur-sm"
                   aria-label="Email"
                 >
                   <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -98,32 +108,40 @@ const Hero = () => {
             </div>
           </div>
 
-          {/* Right Column - Hero Card */}
+          {/* Right Column - Modern Profile Card */}
           <div className="relative">
-            <div className="relative bg-gradient-to-br from-card-bg to-black/40 backdrop-blur-sm rounded-2xl p-8 shadow-2xl border border-card-border">
+            {/* Floating decoration */}
+            <div className="absolute -top-4 -right-4 w-24 h-24 bg-gradient-to-br from-royal/20 to-royal-dark/20 rounded-full blur-2xl animate-pulse"></div>
+            <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-gradient-to-br from-blue-500/10 to-purple-500/10 rounded-full blur-2xl animate-pulse delay-1000"></div>
+            
+            <div className="relative bg-gradient-to-br from-card-bg via-gray-900/60 to-black/40 backdrop-blur-xl rounded-3xl p-8 shadow-2xl border border-card-border hover:border-royal/40 transition-all duration-300 group">
               {/* Profile Image */}
-              <div className="relative mx-auto w-64 h-64 mb-6">
-                <div className="absolute inset-0 bg-gradient-to-br from-royal to-royal-dark rounded-full opacity-20 animate-pulse-glow"></div>
-                <div className="relative w-full h-full bg-gradient-to-br from-gray-800 to-gray-900 rounded-full flex items-center justify-center overflow-hidden border border-royal/30">
-                  {/* Placeholder for profile image */}
-                  <div className="w-48 h-48 bg-gradient-to-br from-royal/30 to-royal-dark/30 rounded-full flex items-center justify-center">
-                    <svg className="w-24 h-24 text-royal/80" fill="currentColor" viewBox="0 0 24 24">
+              <div className="relative mx-auto w-72 h-72 mb-8">
+                <div className="absolute inset-0 bg-gradient-to-br from-royal via-blue-400 to-royal-light rounded-3xl opacity-20 animate-pulse blur-sm"></div>
+                <div className="relative w-full h-full bg-gradient-to-br from-gray-800 via-gray-900 to-black rounded-3xl flex items-center justify-center overflow-hidden border border-royal/30 group-hover:border-royal/50 transition-all duration-300">
+                  {/* Enhanced placeholder */}
+                  <div className="w-56 h-56 bg-gradient-to-br from-royal/40 via-blue-500/30 to-royal-dark/40 rounded-2xl flex items-center justify-center relative overflow-hidden">
+                    <div className="absolute inset-0 bg-gradient-to-br from-transparent via-white/5 to-transparent"></div>
+                    <svg className="w-32 h-32 text-royal/90 relative z-10" fill="currentColor" viewBox="0 0 24 24">
                       <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
                     </svg>
                   </div>
                 </div>
               </div>
 
-              {/* Status */}
-              <div className="text-center space-y-4">
-                <div className="inline-flex items-center px-4 py-2 bg-green-900/30 border border-green-500/30 text-green-400 rounded-full text-sm font-medium">
-                  <div className="w-2 h-2 bg-green-500 rounded-full mr-2 animate-pulse"></div>
+              {/* Status & Info */}
+              <div className="text-center space-y-6">
+                <div className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-green-900/40 to-emerald-900/40 border border-green-500/40 text-green-400 rounded-2xl text-sm font-semibold backdrop-blur-sm">
+                  <div className="w-3 h-3 bg-green-400 rounded-full mr-3 animate-pulse shadow-lg shadow-green-400/50"></div>
                   Available for opportunities
                 </div>
                 
-                <div className="space-y-2">
+                <div className="space-y-3">
                   <p className="text-gray-400 font-medium">Currently studying at</p>
-                  <p className="font-display font-semibold text-white">Universitas Sumatera Utara</p>
+                  <p className="font-display font-bold text-xl bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
+                    Universitas Gadjah Mada
+                  </p>
+                  <div className="w-16 h-1 bg-gradient-to-r from-royal to-royal-light rounded-full mx-auto"></div>
                 </div>
               </div>
 

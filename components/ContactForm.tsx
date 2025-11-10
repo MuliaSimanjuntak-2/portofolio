@@ -47,15 +47,24 @@ const ContactForm = () => {
   };
 
   return (
-    <section id="contact" className="py-20 relative">
-      <div className="absolute inset-0 bg-gradient-to-b from-royal/5 via-transparent to-royal/5" />
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-        {/* Section Header */}
-        <div className="text-center space-y-4 mb-16">
-          <h2 className="font-display font-bold text-3xl md:text-4xl text-white">
+    <section id="contact" className="py-32 relative overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-br from-royal/10 via-transparent to-royal-light/5" />
+      
+      {/* Animated Background Elements */}
+      <div className="absolute top-20 left-10 w-40 h-40 bg-royal/10 rounded-full blur-xl animate-float" />
+      <div className="absolute bottom-20 right-10 w-56 h-56 bg-royal-light/5 rounded-full blur-2xl animate-pulse-glow" />
+      
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+        {/* Enhanced Section Header */}
+        <div className="text-center space-y-6 mb-20 animate-fade-in-up">
+          <div className="inline-flex items-center px-4 py-2 bg-royal/10 backdrop-blur-sm rounded-full border border-royal/20 text-royal-light font-medium text-sm">
+            <span className="w-2 h-2 bg-royal rounded-full mr-2 animate-pulse"></span>
+            Let's Connect
+          </div>
+          <h2 className="font-display font-bold text-4xl md:text-5xl lg:text-6xl bg-gradient-to-r from-white via-gray-200 to-gray-400 bg-clip-text text-transparent">
             Get In Touch
           </h2>
-          <p className="text-lg text-gray-300 max-w-2xl mx-auto">
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
             Punya proyek menarik atau ingin berkolaborasi? 
             Jangan ragu untuk menghubungi saya. Mari diskusikan ide-ide kreatif kita!
           </p>

@@ -26,7 +26,17 @@
       "Implemented MongoDB indexing and aggregation pipelines",
       "Applied mobile-first design principles with Tailwind CSS"
     ],
-    "hasDetailPage": true
+    "hasDetailPage": true,
+    "screenshots": {
+      "main": "/images/projects/ecommerce/main-interface.jpg",
+      "mobile": "/images/projects/ecommerce/mobile-view.jpg",
+      "features": "/images/projects/ecommerce/features-showcase.jpg",
+      "additional": [
+        "/images/projects/ecommerce/dashboard.jpg",
+        "/images/projects/ecommerce/checkout-process.jpg",
+        "/images/projects/ecommerce/product-detail.jpg"
+      ]
+    }
   },
   {
     "id": "2",
@@ -55,7 +65,17 @@
       "Integrated React Beautiful DnD with optimistic UI updates",
       "Implemented Zustand for efficient state management"
     ],
-    "hasDetailPage": true
+    "hasDetailPage": true,
+    "screenshots": {
+      "main": "/images/projects/task-manager/main-dashboard.jpg",
+      "mobile": "/images/projects/task-manager/mobile-app.jpg",
+      "features": "/images/projects/task-manager/drag-drop-demo.jpg",
+      "additional": [
+        "/images/projects/task-manager/team-collaboration.jpg",
+        "/images/projects/task-manager/analytics-view.jpg",
+        "/images/projects/task-manager/notification-system.jpg"
+      ]
+    }
   },
   {
     "id": "3",

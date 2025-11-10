@@ -37,11 +37,6 @@ export default async function Home() {
                   development. Passionate about leveraging technology to build data-driven financial 
                   solutions and optimize business processes through innovation and automation.
                 </p>
-                <p className="text-lg text-gray-300 leading-relaxed">
-                  Selain coding, saya juga tertarik dengan UI/UX design dan selalu berusaha menciptakan 
-                  pengalaman pengguna yang optimal. Saya percaya bahwa kombinasi antara teknologi yang solid 
-                  dan desain yang baik dapat menciptakan solusi yang benar-benar berdampak.
-                </p>
                 <div className="flex flex-wrap justify-center gap-6 pt-8">
                   <div className="text-center bg-card-bg backdrop-blur-sm border border-card-border rounded-lg p-4">
                     <div className="text-2xl font-bold text-royal">2+</div>
@@ -52,8 +47,8 @@ export default async function Home() {
                     <div className="text-gray-400">Projects Completed</div>
                   </div>
                   <div className="text-center bg-card-bg backdrop-blur-sm border border-card-border rounded-lg p-4">
-                    <div className="text-2xl font-bold text-royal">Happy</div>
-                    <div className="text-gray-400">Clients</div>
+                    <div className="text-2xl font-bold text-royal">95%</div>
+                    <div className="text-gray-400">Client Satisfaction</div>
                   </div>
                 </div>
               </div>

@@ -10,37 +10,52 @@ interface ProjectCardProps {
 
 const ProjectCard = ({ project }: ProjectCardProps) => {
   return (
-    <div className="group bg-card-bg backdrop-blur-sm rounded-xl shadow-lg hover:shadow-2xl transition-all 
-    duration-300 overflow-hidden border border-card-border hover:border-royal/40 hover:-translate-y-2">
-      {/* Project Image */}
-      <div className="relative h-48 bg-gradient-to-br from-gray-800 to-gray-900 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-royal/20 to-royal-dark/20 flex items-center justify-center">
-          {/* Placeholder for project image */}
-          <div className="text-center text-royal/80">
-            <svg className="w-16 h-16 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-            </svg>
-            <p className="text-sm font-medium">{project.title}</p>
+    <div className="group relative bg-gradient-to-br from-white/5 to-white/[0.02] backdrop-blur-xl rounded-2xl shadow-2xl shadow-black/20 hover:shadow-royal/25 hover:shadow-2xl transition-all duration-500 overflow-hidden border border-white/10 hover:border-royal/40 hover:-translate-y-3 hover-lift">
+      {/* Glow Effect */}
+      <div className="absolute inset-0 bg-gradient-to-br from-royal/20 to-royal-light/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-all duration-500 blur-xl -z-10"></div>
+      {/* Enhanced Project Image */}
+      <div className="relative h-56 bg-gradient-to-br from-gray-800 via-gray-850 to-gray-900 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-royal/30 to-royal-dark/20 flex items-center justify-center">
+          {/* Enhanced Placeholder */}
+          <div className="text-center text-royal/90 transform group-hover:scale-105 transition-transform duration-300">
+            <div className="relative">
+              <svg className="w-20 h-20 mx-auto mb-3 animate-pulse-glow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+              </svg>
+              <div className="absolute inset-0 bg-royal/20 rounded-full blur-lg opacity-50 animate-ping"></div>
+            </div>
+            <p className="text-lg font-semibold bg-gradient-to-r from-royal-light to-royal bg-clip-text text-transparent">{project.title}</p>
           </div>
         </div>
         
-        {/* Overlay with links - shows on hover */}
-        <div className="absolute inset-0 bg-royal/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center space-x-4">
+        {/* Enhanced Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-br from-royal/95 via-royal-dark/90 to-black/80 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-center justify-center space-x-4">
+          <Link
+            href={`/projects/${project.slug}`}
+            className="group/btn relative px-6 py-3 bg-gradient-to-r from-royal to-royal-dark text-white font-bold rounded-xl hover:from-royal-dark hover:to-royal transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+          >
+            <span className="relative z-10 flex items-center">
+              <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+              </svg>
+              Detail
+            </span>
+            <div className="absolute inset-0 bg-gradient-to-r from-white/10 to-white/5 rounded-xl opacity-0 group-hover/btn:opacity-100 transition-all duration-300"></div>
+          </Link>
           <Link
             href={project.live}
             target="_blank"
             rel="noopener noreferrer"
-            className="px-4 py-2 bg-white text-royal font-semibold rounded-lg hover:bg-cream transition-colors"
+            className="group/btn relative px-6 py-3 bg-white text-royal font-bold rounded-xl hover:bg-cream transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
           >
-            Live Demo
-          </Link>
-          <Link
-            href={project.repo}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="px-4 py-2 bg-transparent border-2 border-white text-white font-semibold rounded-lg hover:bg-white hover:text-royal transition-colors"
-          >
-            View Code
+            <span className="relative z-10 flex items-center">
+              <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+              </svg>
+              Live Demo
+            </span>
+            <div className="absolute inset-0 bg-gradient-to-r from-royal/10 to-royal-light/10 rounded-xl opacity-0 group-hover/btn:opacity-100 transition-all duration-300"></div>
           </Link>
         </div>
       </div>
@@ -53,23 +68,23 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
             <h3 className="font-display font-bold text-xl text-white group-hover:text-royal transition-colors">
               {project.title}
             </h3>
-            <span className="text-sm text-gray-400 font-medium">
+            <span className="text-sm text-gray-200 font-medium">
               {new Date(project.date).getFullYear()}
             </span>
           </div>
-          <p className="text-gray-300 leading-relaxed">
+          <p className="text-gray-100 leading-relaxed">
             {project.short}
           </p>
         </div>
 
         {/* Tech Stack */}
         <div className="space-y-2">
-          <p className="text-sm font-semibold text-gray-300">Tech Stack:</p>
+          <p className="text-sm font-semibold text-gray-100">Tech Stack:</p>
           <div className="flex flex-wrap gap-2">
             {project.tech.map((tech, index) => (
               <span
                 key={index}
-                className="px-3 py-1 bg-royal/20 text-royal border border-royal/30 text-sm font-medium rounded-full hover:bg-royal/30 transition-colors"
+                className="px-3 py-1 bg-royal/25 text-royal-light border border-royal/40 text-sm font-medium rounded-full hover:bg-royal/40 hover:text-white transition-colors"
               >
                 {tech}
               </span>
@@ -78,14 +93,14 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
         </div>
 
         {/* Footer */}
-        <div className="pt-4 border-t border-card-border">
+        <div className="pt-4 border-t border-white/10">
           <div className="flex items-center justify-between">
             <div className="flex space-x-4">
               <Link
                 href={project.repo}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-400 hover:text-royal transition-colors"
+                className="text-gray-200 hover:text-royal-light transition-colors p-2 rounded-lg hover:bg-royal/10"
                 aria-label="View source code"
               >
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -96,7 +111,7 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
                 href={project.live}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-400 hover:text-royal transition-colors"
+                className="text-gray-200 hover:text-royal-light transition-colors p-2 rounded-lg hover:bg-royal/10"
                 aria-label="View live demo"
               >
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -104,18 +119,6 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
                 </svg>
               </Link>
             </div>
-            
-            {project.hasDetailPage && (
-              <Link
-                href={`/projects/${project.slug}`}
-                className="text-royal hover:text-royal-dark font-semibold text-sm flex items-center space-x-1 transition-colors"
-              >
-                <span>Case Study</span>
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                </svg>
-              </Link>
-            )}
           </div>
         </div>
       </div>

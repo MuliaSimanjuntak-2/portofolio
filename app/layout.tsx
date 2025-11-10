@@ -16,18 +16,19 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('http://localhost:3000'),
   title: {
-    default: "Nama Kamu - Portfolio",
-    template: "%s | Nama Kamu"
+    default: "Mulia Simanjuntak - Portfolio",
+    template: "%s | Mulia Simanjuntak"
   },
-  description: "Portfolio website of Nama Kamu - a passionate student showcasing projects, skills, and experiences in web development.",
+  description: "Portfolio website of Mulia Simanjuntak - a passionate student showcasing projects, skills, and experiences in web development.",
   keywords: ["portfolio", "web developer", "student", "projects", "Next.js", "React"],
-  authors: [{ name: "Nama Kamu" }],
-  creator: "Nama Kamu",
+  authors: [{ name: "Mulia Simanjuntak" }],
+  creator: "Mulia Simanjuntak",
   openGraph: {
     type: "website",
     locale: "id_ID",
-    url: "https://your-portfolio.vercel.app",
+    url: "http://localhost:3000",
     title: "Nama Kamu - Portfolio",
     description: "Portfolio website showcasing my projects and skills as a student developer.",
     siteName: "Nama Kamu Portfolio",

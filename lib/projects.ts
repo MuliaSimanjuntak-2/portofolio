@@ -19,6 +19,12 @@ export interface Project {
   challenges?: string[];
   solutions?: string[];
   hasDetailPage: boolean;
+  screenshots?: {
+    main?: string;
+    mobile?: string;
+    features?: string;
+    additional?: string[];
+  };
 }
 
 export async function getAllProjects(): Promise<Project[]> {

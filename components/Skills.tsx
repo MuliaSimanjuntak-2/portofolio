@@ -41,12 +41,21 @@ const Skills = () => {
   ];
 
   return (
-    <section id="skills" className="py-20 relative">
-      <div className="absolute inset-0 bg-gradient-to-b from-royal/5 via-transparent to-royal/5" />
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-        {/* Section Header */}
-        <div className="text-center space-y-4 mb-16">
-          <h2 className="font-display font-bold text-3xl md:text-4xl text-white">
+    <section id="skills" className="py-32 relative overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-br from-royal/10 via-transparent to-royal-light/5" />
+      
+      {/* Animated Background Elements */}
+      <div className="absolute top-20 left-10 w-32 h-32 bg-royal/10 rounded-full blur-xl animate-float" />
+      <div className="absolute bottom-20 right-10 w-48 h-48 bg-royal-light/5 rounded-full blur-2xl animate-pulse-glow" />
+      
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+        {/* Enhanced Section Header */}
+        <div className="text-center space-y-6 mb-20 animate-fade-in-up">
+          <div className="inline-flex items-center px-4 py-2 bg-royal/10 backdrop-blur-sm rounded-full border border-royal/20 text-royal-light font-medium text-sm">
+            <span className="w-2 h-2 bg-royal rounded-full mr-2 animate-pulse"></span>
+            Technical Expertise
+          </div>
+          <h2 className="font-display font-bold text-4xl md:text-5xl lg:text-6xl bg-gradient-to-r from-white via-gray-200 to-gray-400 bg-clip-text text-transparent">
             Skills & Technologies
           </h2>
           <p className="text-lg text-gray-300 max-w-2xl mx-auto">
@@ -55,28 +64,47 @@ const Skills = () => {
           </p>
         </div>
 
-        {/* Skills Categories */}
-        <div className="grid lg:grid-cols-3 gap-8">
+        {/* Enhanced Skills Categories */}
+        <div className="grid lg:grid-cols-3 gap-10">
           {skillCategories.map((category, categoryIndex) => (
-            <div key={categoryIndex} className="space-y-6">
-              {/* Category Title */}
-              <div className="text-center">
-                <h3 className="font-display font-bold text-xl text-white mb-2">
-                  {category.title}
-                </h3>
-                <div className="w-16 h-1 bg-royal mx-auto rounded-full"></div>
-              </div>
+            <div 
+              key={categoryIndex} 
+              className="group relative animate-fade-in-up hover-lift"
+              style={{ animationDelay: `${categoryIndex * 0.2}s` }}
+            >
+              {/* Glass Card Background */}
+              <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-white/[0.02] backdrop-blur-xl rounded-2xl border border-white/10 shadow-2xl shadow-black/20"></div>
+              
+              {/* Glow Effect */}
+              <div className="absolute inset-0 bg-gradient-to-br from-royal/20 to-royal-light/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-all duration-500 blur-xl"></div>
+              
+              <div className="relative p-8 space-y-8">
+                {/* Enhanced Category Title */}
+                <div className="text-center space-y-4">
+                  <div className="relative">
+                    <h3 className="font-display font-bold text-2xl bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
+                      {category.title}
+                    </h3>
+                    <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2">
+                      <div className="w-12 h-1 bg-gradient-to-r from-royal to-royal-light rounded-full"></div>
+                      <div className="w-6 h-1 bg-gradient-to-r from-royal-light to-royal rounded-full mx-auto mt-1 opacity-60"></div>
+                    </div>
+                  </div>
+                </div>
 
-              {/* Skills List as chips (no percentages) */}
-              <div className="flex flex-wrap gap-3">
-                {category.skills.map((skill: string, skillIndex: number) => (
-                  <span
-                    key={skillIndex}
-                    className="px-3 py-2 bg-royal/20 text-royal rounded-full text-sm font-medium border border-royal/30 hover:bg-royal hover:text-white transition-colors"
-                  >
-                    {skill}
-                  </span>
-                ))}
+                {/* Enhanced Skills Chips */}
+                <div className="flex flex-wrap gap-3 justify-center">
+                  {category.skills.map((skill: string, skillIndex: number) => (
+                    <span
+                      key={skillIndex}
+                      className="relative px-4 py-2 bg-gradient-to-r from-royal/20 to-royal-light/15 text-gray-200 rounded-xl text-sm font-medium border border-royal/20 hover:border-royal/40 transition-all duration-300 group/skill cursor-pointer"
+                      style={{ animationDelay: `${(categoryIndex * 0.2) + (skillIndex * 0.1)}s` }}
+                    >
+                      <span className="relative z-10">{skill}</span>
+                      <div className="absolute inset-0 bg-gradient-to-r from-royal/30 to-royal-light/20 rounded-xl opacity-0 group-hover/skill:opacity-100 transition-all duration-300 scale-90 group-hover/skill:scale-100"></div>
+                    </span>
+                  ))}
+                </div>
               </div>
             </div>
           ))}
