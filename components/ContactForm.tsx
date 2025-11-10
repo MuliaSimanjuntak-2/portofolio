@@ -24,22 +24,31 @@ const ContactForm = () => {
     setSubmitStatus('idle');
 
     try {
-      // Replace 'YOUR_FORMSPREE_ID' with your actual Formspree form ID
-      const response = await fetch('https://formspree.io/f/YOUR_FORMSPREE_ID', {
+      // Create FormData from the form
+      const form = e.currentTarget;
+      const formData = new FormData(form);
+      
+      // Send to Formspree - this will deliver email directly to your Gmail
+      const response = await fetch('https://formspree.io/f/mvgozbpz', {
         method: 'POST',
+        body: formData,
         headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
+          'Accept': 'application/json'
+        }
       });
 
       if (response.ok) {
         setSubmitStatus('success');
         setFormData({ name: '', email: '', message: '' });
       } else {
+        const data = await response.json();
+        if (data.errors) {
+          console.error('Formspree errors:', data.errors);
+        }
         setSubmitStatus('error');
       }
     } catch (error) {
+      console.error('Form submission error:', error);
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);
@@ -154,7 +163,12 @@ const ContactForm = () => {
 
           {/* Contact Form */}
           <div className="bg-card-bg backdrop-blur-sm p-8 rounded-xl border border-card-border">
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form 
+              onSubmit={handleSubmit} 
+              action="https://formspree.io/f/mvgozbpz"
+              method="POST"
+              className="space-y-6"
+            >
               <div className="space-y-4">
                 <div>
                   <label htmlFor="name" className="block text-sm font-semibold text-white mb-2">
@@ -205,6 +219,14 @@ const ContactForm = () => {
                 </div>
               </div>
 
+              {/* Hidden fields for Formspree */}
+              <input type="hidden" name="_subject" value="New Contact from Portfolio Website" />
+              <input type="hidden" name="_replyto" value={formData.email} />
+              <input type="hidden" name="_next" value="thank-you" />
+              
+              {/* Honeypot field for spam protection */}
+              <input type="text" name="_gotcha" style={{display: 'none'}} tabIndex={-1} autoComplete="off" />
+
               {/* Submit Button */}
               <button
                 type="submit"
@@ -227,7 +249,7 @@ const ContactForm = () => {
               {submitStatus === 'success' && (
                 <div className="p-4 bg-green-500/20 border border-green-500/30 rounded-lg backdrop-blur-sm">
                   <p className="text-green-400 font-medium">
-                    ✅ Message sent successfully! I'll get back to you as soon as possible.
+                    ✅ Message sent successfully! Your message has been delivered to my Gmail inbox. I'll get back to you within 24 hours.
                   </p>
                 </div>
               )}
@@ -235,7 +257,10 @@ const ContactForm = () => {
               {submitStatus === 'error' && (
                 <div className="p-4 bg-red-500/20 border border-red-500/30 rounded-lg backdrop-blur-sm">
                   <p className="text-red-400 font-medium">
-                    ❌ An error occurred. Please try again or contact me directly via email.
+                    ❌ Form service unavailable. Please contact me directly at: 
+                    <a href="mailto:muliachristiangomgompsimanjuntak@mail.ugm.ac.id" className="underline ml-1 hover:text-red-300">
+                      muliachristiangomgompsimanjuntak@mail.ugm.ac.id
+                    </a>
                   </p>
                 </div>
               )}

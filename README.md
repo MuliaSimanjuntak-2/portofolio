@@ -66,7 +66,7 @@ my-portfolio/
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/username/my-portfolio.git
+   git clone https://github.com/MuliaSimanjuntak-2/my-portfolio.git
    cd my-portfolio
    ```
 
@@ -188,7 +188,7 @@ Add new projects to `data/projects.json`:
   "long": "Detailed description for case study",
   "tech": ["React", "Node.js"],
   "image": "/images/projects/new-project.jpg",
-  "repo": "https://github.com/username/repo",
+  "repo": "https://github.com/MuliaSimanjuntak-2/repo",
   "live": "https://project-demo.com",
   "date": "2024-01-01",
   "role": "Full Stack Developer",
@@ -232,10 +232,10 @@ Contributions, issues, and feature requests are welcome! Feel free to check [iss
 
 ## 📞 Contact
 
-**Nama Kamu**
-- Email: nama@email.com
-- LinkedIn: [linkedin.com/in/namakamu](https://linkedin.com/in/namakamu)
-- GitHub: [github.com/namakamu](https://github.com/namakamu)
+**Mulia Simanjuntak**
+- Email: mulia@email.com
+- LinkedIn: [linkedin.com/in/mulia-simanjuntak](https://linkedin.com/in/mulia-simanjuntak)
+- GitHub: [github.com/MuliaSimanjuntak-2](https://github.com/MuliaSimanjuntak-2)
 
 ---
 

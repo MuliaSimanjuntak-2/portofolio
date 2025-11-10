@@ -111,92 +111,8 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         {/* Main Content */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
           <div className="space-y-24">
-            {/* Project Screenshots Gallery */}
-            <section className="space-y-12 animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
-              <div className="text-center space-y-4">
-                <h2 className="font-display font-bold text-3xl md:text-4xl bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
-                  Project Screenshots
-                </h2>
-                <p className="text-gray-400 max-w-2xl mx-auto">
-                  View the interface and key features of this project
-                </p>
-              </div>
-              
-              {/* Screenshot Gallery */}
-              <div className="grid md:grid-cols-2 gap-8">
-                {/* Main Screenshot */}
-                <div className="relative group">
-                  <div className="absolute inset-0 bg-gradient-to-br from-royal/20 to-royal-light/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-all duration-500 blur-xl"></div>
-                  <div className="relative h-80 bg-gradient-to-br from-gray-800 via-gray-850 to-gray-900 rounded-2xl overflow-hidden border border-white/10 group-hover:border-royal/40 transition-all duration-500">
-                    {project.screenshots?.main ? (
-                      <Image
-                        src={project.screenshots.main}
-                        alt={`${project.title} - Main Interface`}
-                        fill
-                        className="object-cover transition-transform duration-300 group-hover:scale-105"
-                      />
-                    ) : (
-                      <ScreenshotPlaceholder 
-                        projectSlug={project.slug}
-                        screenshotType="main"
-                        expectedPath={project.screenshots?.main}
-                      />
-                    )}
-                  </div>
-                </div>
-                
-                {/* Secondary Screenshots */}
-                <div className="space-y-4">
-                  {/* Features Screenshot */}
-                  <div className="relative group">
-                    <div className="absolute inset-0 bg-gradient-to-br from-royal/20 to-royal-light/10 rounded-xl opacity-0 group-hover:opacity-100 transition-all duration-500 blur-xl"></div>
-                    <div className="relative h-72 bg-gradient-to-br from-gray-800 via-gray-850 to-gray-900 rounded-xl overflow-hidden border border-white/10 group-hover:border-royal/40 transition-all duration-500">
-                      {project.screenshots?.features ? (
-                        <Image
-                          src={project.screenshots.features}
-                          alt={`${project.title} - Features`}
-                          fill
-                          className="object-cover transition-transform duration-300 group-hover:scale-105"
-                        />
-                      ) : (
-                        <ScreenshotPlaceholder 
-                          projectSlug={project.slug}
-                          screenshotType="features"
-                          expectedPath={project.screenshots?.features}
-                        />
-                      )}
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Additional Screenshots Grid */}
-              {project.screenshots?.additional && project.screenshots.additional.length > 0 && (
-                <div className="space-y-6">
-                  <h3 className="text-center text-2xl font-bold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
-                    More Screenshots
-                  </h3>
-                  <div className="grid md:grid-cols-3 gap-6">
-                    {project.screenshots.additional.map((screenshot, index) => (
-                      <div key={index} className="relative group">
-                        <div className="absolute inset-0 bg-gradient-to-br from-royal/20 to-royal-light/10 rounded-xl opacity-0 group-hover:opacity-100 transition-all duration-500 blur-xl"></div>
-                        <div className="relative h-48 bg-gradient-to-br from-gray-800 via-gray-850 to-gray-900 rounded-xl overflow-hidden border border-white/10 group-hover:border-royal/40 transition-all duration-500">
-                          <Image
-                            src={screenshot}
-                            alt={`${project.title} - Additional Screenshot ${index + 1}`}
-                            fill
-                            className="object-cover transition-transform duration-300 group-hover:scale-105"
-                          />
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              )}
-            </section>
-
             {/* Project Overview */}
-            <section className="space-y-8 animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
+            <section className="space-y-8 animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
               <div className="relative">
                 <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-white/[0.02] backdrop-blur-xl rounded-2xl border border-white/10"></div>
                 <div className="relative p-12 space-y-8">
@@ -211,7 +127,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             </section>
 
             {/* Tech Stack */}
-            <section className="space-y-12 animate-fade-in-up" style={{ animationDelay: '0.6s' }}>
+            <section className="space-y-12 animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
               <div className="text-center space-y-4">
                 <h2 className="font-display font-bold text-3xl md:text-4xl bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
                   Tech Stack
@@ -237,37 +153,9 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
               </div>
             </section>
 
-            {/* Key Metrics */}
-            <section className="space-y-12 animate-fade-in-up" style={{ animationDelay: '0.8s' }}>
-              <div className="text-center space-y-4">
-                <h2 className="font-display font-bold text-3xl md:text-4xl bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
-                  Key Metrics
-                </h2>
-                <p className="text-gray-400 max-w-2xl mx-auto">
-                  Achievements and results from this project
-                </p>
-              </div>
-              
-              <div className="grid md:grid-cols-3 gap-8">
-                {Object.entries(project.metrics).map(([key, value], index) => (
-                  <div 
-                    key={index} 
-                    className="group relative p-8 bg-gradient-to-br from-white/5 to-white/[0.02] backdrop-blur-xl rounded-2xl border border-white/10 hover:border-royal/40 transition-all duration-500 hover-lift text-center"
-                    style={{ animationDelay: `${1.0 + index * 0.2}s` }}
-                  >
-                    <div className="absolute inset-0 bg-gradient-to-br from-royal/20 to-royal-light/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-all duration-500 blur-xl"></div>
-                    <div className="relative space-y-4">
-                      <p className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-royal-light to-royal bg-clip-text text-transparent">{value}</p>
-                      <p className="text-gray-300 font-medium capitalize">{key.replace(/([A-Z])/g, ' $1').trim()}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </section>
-
             {/* Challenges & Solutions */}
             {project.challenges && project.solutions && project.challenges.length > 0 && (
-              <section className="space-y-12 animate-fade-in-up" style={{ animationDelay: '1.2s' }}>
+              <section className="space-y-12 animate-fade-in-up" style={{ animationDelay: '0.6s' }}>
                 <div className="text-center space-y-4">
                   <h2 className="font-display font-bold text-3xl md:text-4xl bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
                     Challenges & Solutions
@@ -323,38 +211,23 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
               </section>
             )}
 
-            {/* Project Links */}
-            <section className="space-y-12 animate-fade-in-up" style={{ animationDelay: '1.4s' }}>
+            {/* Source Code */}
+            <section className="space-y-12 animate-fade-in-up" style={{ animationDelay: '0.8s' }}>
               <div className="text-center space-y-4">
                 <h2 className="font-display font-bold text-3xl md:text-4xl bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
-                  Project Links
+                  Source Code
                 </h2>
                 <p className="text-gray-400 max-w-2xl mx-auto">
-                  Direct access to project and source code
+                  View the complete source code on GitHub
                 </p>
               </div>
               
-              <div className="flex flex-col sm:flex-row justify-center gap-6">
-                <Link
-                  href={project.live}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group relative px-8 py-4 bg-gradient-to-r from-royal to-royal-dark text-white font-bold rounded-xl hover:from-royal-dark hover:to-royal transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl flex items-center justify-center"
-                >
-                  <span className="relative z-10 flex items-center">
-                    <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                    </svg>
-                    View Live Demo
-                  </span>
-                  <div className="absolute inset-0 bg-gradient-to-r from-white/10 to-white/5 rounded-xl opacity-0 group-hover:opacity-100 transition-all duration-300"></div>
-                </Link>
-                
+              <div className="flex justify-center">
                 <Link
                   href={project.repo}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group relative px-8 py-4 bg-transparent border-2 border-royal text-royal-light font-bold rounded-xl hover:bg-royal hover:text-white hover:border-royal-dark transition-all duration-300 transform hover:scale-105 flex items-center justify-center"
+                  className="group relative px-8 py-4 bg-gradient-to-r from-royal to-royal-dark text-white font-bold rounded-xl hover:from-royal-dark hover:to-royal transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl flex items-center justify-center"
                 >
                   <span className="relative z-10 flex items-center">
                     <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
@@ -362,6 +235,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                     </svg>
                     View Source Code
                   </span>
+                  <div className="absolute inset-0 bg-gradient-to-r from-white/10 to-white/5 rounded-xl opacity-0 group-hover:opacity-100 transition-all duration-300"></div>
                 </Link>
               </div>
             </section>

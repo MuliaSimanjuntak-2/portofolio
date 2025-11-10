@@ -33,7 +33,7 @@ const ProjectList = ({ projects }: ProjectListProps) => {
         {/* View All Projects Button */}
         <div className="text-center mt-12">
           <a
-            href="https://github.com/MuliaSimanjuntak"
+            href="https://github.com/MuliaSimanjuntak-2"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center px-8 py-4 bg-transparent border-2 border-royal text-royal font-semibold rounded-lg hover:bg-royal hover:text-white transition-all duration-200 hover:scale-105 shadow-lg"

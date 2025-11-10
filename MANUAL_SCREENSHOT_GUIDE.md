@@ -71,7 +71,7 @@ Jika ingin menambah screenshot tambahan, edit file `data/projects.json`:
   "long": "Long description...",
   "tech": ["React", "Node.js", "etc"],
   "image": "/images/projects/your-project-name/preview.jpg",
-  "repo": "https://github.com/username/repo",
+  "repo": "https://github.com/MuliaSimanjuntak-2/repo",
   "live": "https://your-project-demo.com",
   "date": "2024-11-10",
   "role": "Full Stack Developer",

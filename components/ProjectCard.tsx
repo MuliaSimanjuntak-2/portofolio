@@ -29,17 +29,17 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
         </div>
         
         {/* Enhanced Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-br from-royal/95 via-royal-dark/90 to-black/80 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-center justify-center space-x-4">
+        <div className="absolute inset-0 bg-gradient-to-br from-royal/95 via-royal-dark/90 to-black/80 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-center justify-center">
           <Link
             href={`/projects/${project.slug}`}
-            className="group/btn relative px-6 py-3 bg-gradient-to-r from-royal to-royal-dark text-white font-bold rounded-xl hover:from-royal-dark hover:to-royal transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+            className="group/btn relative px-8 py-4 bg-gradient-to-r from-royal to-royal-dark text-white font-bold rounded-xl hover:from-royal-dark hover:to-royal transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
           >
             <span className="relative z-10 flex items-center">
               <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
               </svg>
-              Detail
+              View Details
             </span>
             <div className="absolute inset-0 bg-gradient-to-r from-white/10 to-white/5 rounded-xl opacity-0 group-hover/btn:opacity-100 transition-all duration-300"></div>
           </Link>
