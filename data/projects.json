@@ -1,0 +1,81 @@
+[
+  {
+    "id": "1",
+    "slug": "e-commerce-website",
+    "title": "E-Commerce Website",
+    "short": "A modern e-commerce platform with shopping cart functionality and secure payment integration.",
+    "long": "This comprehensive e-commerce website was built using React and Node.js, featuring a responsive design, user authentication, shopping cart functionality, and secure payment processing with Stripe. The project includes an admin dashboard for inventory management, order tracking, and customer analytics. I implemented advanced features like product search, filtering, wishlist functionality, and email notifications for order confirmations.",
+    "tech": ["React", "Node.js", "Express", "MongoDB", "Stripe", "Tailwind CSS"],
+    "image": "/images/projects/ecommerce-preview.jpg",
+    "repo": "https://github.com/namakamu/ecommerce-website",
+    "live": "https://ecommerce-demo.vercel.app",
+    "date": "2024-03-15",
+    "role": "Full Stack Developer",
+    "metrics": {
+      "users": "500+ registered users",
+      "performance": "95% Lighthouse score",
+      "completion": "6 weeks development time"
+    },
+    "challenges": [
+      "Implementing secure payment processing with Stripe",
+      "Optimizing database queries for product search",
+      "Creating responsive design for mobile shopping experience"
+    ],
+    "solutions": [
+      "Used Stripe's secure payment APIs with webhook validation",
+      "Implemented MongoDB indexing and aggregation pipelines",
+      "Applied mobile-first design principles with Tailwind CSS"
+    ],
+    "hasDetailPage": true
+  },
+  {
+    "id": "2",
+    "slug": "task-management-app",
+    "title": "Task Management App",
+    "short": "A collaborative task management application with real-time updates and team collaboration features.",
+    "long": "A full-featured task management application built with Next.js and Firebase, designed for team collaboration. Features include real-time task updates, drag-and-drop functionality, team invitations, progress tracking, and deadline notifications. The app supports multiple project boards, task assignments, and includes a comprehensive dashboard with analytics and reporting features.",
+    "tech": ["Next.js", "Firebase", "TypeScript", "Framer Motion", "Zustand"],
+    "image": "/images/projects/taskmanager-preview.jpg",
+    "repo": "https://github.com/namakamu/task-manager",
+    "live": "https://taskmanager-demo.vercel.app",
+    "date": "2024-02-20",
+    "role": "Frontend Developer",
+    "metrics": {
+      "teams": "50+ active teams",
+      "tasks": "1000+ tasks managed",
+      "uptime": "99.9% uptime"
+    },
+    "challenges": [
+      "Implementing real-time synchronization across team members",
+      "Creating smooth drag-and-drop interactions",
+      "Managing complex state for multiple project boards"
+    ],
+    "solutions": [
+      "Used Firebase Firestore's real-time listeners for instant updates",
+      "Integrated React Beautiful DnD with optimistic UI updates",
+      "Implemented Zustand for efficient state management"
+    ],
+    "hasDetailPage": true
+  },
+  {
+    "id": "3",
+    "slug": "weather-forecast-app",
+    "title": "Weather Forecast App",
+    "short": "A responsive weather application with location-based forecasts and beautiful weather animations.",
+    "long": "A modern weather application built with React and OpenWeatherMap API, featuring location-based weather forecasts, 7-day weather predictions, and beautiful animated weather icons. The app includes geolocation support, weather alerts, and the ability to save favorite locations. The interface adapts to current weather conditions with dynamic backgrounds and smooth animations.",
+    "tech": ["React", "OpenWeatherMap API", "CSS Animations", "Geolocation API"],
+    "image": "/images/projects/weather-preview.jpg",
+    "repo": "https://github.com/namakamu/weather-app",
+    "live": "https://weather-forecast-demo.vercel.app",
+    "date": "2024-01-10",
+    "role": "Frontend Developer",
+    "metrics": {
+      "accuracy": "95% forecast accuracy",
+      "locations": "1000+ cities supported",
+      "response": "< 500ms API response time"
+    },
+    "challenges": [],
+    "solutions": [],
+    "hasDetailPage": false
+  }
+]
