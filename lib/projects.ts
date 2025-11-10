@@ -21,7 +21,6 @@ export interface Project {
   hasDetailPage: boolean;
   screenshots?: {
     main?: string;
-    mobile?: string;
     features?: string;
     additional?: string[];
   };
@@ -53,7 +52,7 @@ export async function getProjectSlugs(): Promise<string[]> {
 
 export function formatDate(dateString: string): string {
   const date = new Date(dateString);
-  return date.toLocaleDateString('id-ID', {
+  return date.toLocaleDateString('en-US', {
     year: 'numeric',
     month: 'long',
     day: 'numeric'

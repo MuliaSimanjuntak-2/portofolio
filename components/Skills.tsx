@@ -59,8 +59,8 @@ const Skills = () => {
             Skills & Technologies
           </h2>
           <p className="text-lg text-gray-300 max-w-2xl mx-auto">
-            Berikut adalah teknologi dan tools yang saya kuasai dalam pengembangan web. 
-            Saya terus belajar dan mengembangkan skill untuk mengikuti perkembangan teknologi.
+            Here are the technologies and tools I master in web development. 
+            I continuously learn and develop skills to keep up with technological advances.
           </p>
         </div>
 
@@ -117,8 +117,8 @@ const Skills = () => {
               Always Learning
             </h3>
             <p className="text-gray-300 leading-relaxed mb-6">
-              Teknologi web terus berkembang pesat, dan saya berkomitmen untuk terus belajar hal-hal baru. 
-              Saat ini saya sedang fokus memperdalam React ecosystem, cloud technologies, dan best practices dalam web development.
+              Web technology continues to evolve rapidly, and I'm committed to continuously learning new things. 
+              Currently, I'm focusing on deepening my knowledge of the React ecosystem, cloud technologies, and best practices in web development.
             </p>
             <div className="flex flex-wrap justify-center gap-3">
               <span className="px-4 py-2 bg-royal/20 text-royal rounded-full text-sm font-medium border border-royal/30">

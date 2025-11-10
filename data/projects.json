@@ -29,7 +29,6 @@
     "hasDetailPage": true,
     "screenshots": {
       "main": "/images/projects/ecommerce/main-interface.jpg",
-      "mobile": "/images/projects/ecommerce/mobile-view.jpg",
       "features": "/images/projects/ecommerce/features-showcase.jpg",
       "additional": [
         "/images/projects/ecommerce/dashboard.jpg",
@@ -68,7 +67,6 @@
     "hasDetailPage": true,
     "screenshots": {
       "main": "/images/projects/task-manager/main-dashboard.jpg",
-      "mobile": "/images/projects/task-manager/mobile-app.jpg",
       "features": "/images/projects/task-manager/drag-drop-demo.jpg",
       "additional": [
         "/images/projects/task-manager/team-collaboration.jpg",

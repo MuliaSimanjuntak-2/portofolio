@@ -2,7 +2,7 @@
 
 interface ScreenshotPlaceholderProps {
   projectSlug: string;
-  screenshotType: 'main' | 'mobile' | 'features';
+  screenshotType: 'main' | 'features';
   expectedPath?: string;
   className?: string;
 }
@@ -18,8 +18,6 @@ const ScreenshotPlaceholder = ({
     switch (screenshotType) {
       case 'main':
         return `${basePath}/main-interface.jpg`;
-      case 'mobile':
-        return `${basePath}/mobile-view.jpg`;
       case 'features':
         return `${basePath}/features.jpg`;
       default:
@@ -33,12 +31,6 @@ const ScreenshotPlaceholder = ({
         return (
           <svg className="w-16 h-16 mx-auto mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 17V7m0 10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h2a2 2 0 012 2m0 10a2 2 0 002 2h2a2 2 0 002-2M9 7a2 2 0 012-2h2a2 2 0 012 2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v2M9 7v10" />
-          </svg>
-        );
-      case 'mobile':
-        return (
-          <svg className="w-12 h-12 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
           </svg>
         );
       case 'features':
@@ -55,8 +47,6 @@ const ScreenshotPlaceholder = ({
     switch (screenshotType) {
       case 'main':
         return 'Main Interface';
-      case 'mobile':
-        return 'Mobile View';
       case 'features':
         return 'Features';
     }
@@ -74,13 +64,13 @@ const ScreenshotPlaceholder = ({
           {getTitle()}
         </p>
         <div className={`mt-2 p-2 bg-black/20 rounded-lg ${screenshotType === 'main' ? 'text-sm' : 'text-xs'}`}>
-          <p className="text-royal/70 font-mono">Upload gambar ke:</p>
+          <p className="text-royal/70 font-mono">Upload image to:</p>
           <p className="text-royal/90 font-mono break-all">/public{pathToDisplay}</p>
         </div>
         {process.env.NODE_ENV === 'development' && (
           <div className="mt-2 text-xs text-royal/50">
             <p>📁 Development Mode</p>
-            <p>Screenshot akan otomatis muncul setelah file diupload</p>
+            <p>Screenshot will appear automatically after file upload</p>
           </div>
         )}
       </div>

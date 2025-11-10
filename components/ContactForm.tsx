@@ -65,8 +65,8 @@ const ContactForm = () => {
             Get In Touch
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            Punya proyek menarik atau ingin berkolaborasi? 
-            Jangan ragu untuk menghubungi saya. Mari diskusikan ide-ide kreatif kita!
+            Have an interesting project or want to collaborate? 
+            Don't hesitate to contact me. Let's discuss our creative ideas!
           </p>
         </div>
 
@@ -75,11 +75,11 @@ const ContactForm = () => {
           <div className="space-y-8">
             <div className="space-y-6">
               <h3 className="font-display font-bold text-2xl text-white">
-                Mari Berkolaborasi
+                Let's Collaborate
               </h3>
               <p className="text-gray-300 leading-relaxed">
-                Saya selalu terbuka untuk peluang baru, project menarik, dan diskusi tentang teknologi. 
-                Apakah Anda memiliki ide yang ingin diwujudkan atau mencari developer untuk tim Anda?
+                I'm always open to new opportunities, interesting projects, and discussions about technology. 
+                Do you have an idea you want to bring to life or looking for a developer for your team?
               </p>
             </div>
 
@@ -127,12 +127,12 @@ const ContactForm = () => {
                 <div>
                   <p className="font-semibold text-white">GitHub</p>
                   <a 
-                    href="https://github.com/namakamu" 
+                    href="https://github.com/MuliaSimanjuntak-2" 
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="text-royal hover:text-royal-light transition-colors"
                   >
-                    github.com/namakamu
+                    github.com/MuliaSimanjuntak-2
                   </a>
                 </div>
               </div>
@@ -146,7 +146,7 @@ const ContactForm = () => {
                 </svg>
                 <div>
                   <p className="font-semibold text-white">Quick Response</p>
-                  <p className="text-sm text-gray-300">Biasanya saya membalas dalam 24 jam</p>
+                  <p className="text-sm text-gray-300">I usually reply within 24 hours</p>
                 </div>
               </div>
             </div>
@@ -158,7 +158,7 @@ const ContactForm = () => {
               <div className="space-y-4">
                 <div>
                   <label htmlFor="name" className="block text-sm font-semibold text-white mb-2">
-                    Nama Lengkap
+                    Full Name
                   </label>
                   <input
                     type="text"
@@ -168,7 +168,7 @@ const ContactForm = () => {
                     onChange={handleChange}
                     required
                     className="w-full px-4 py-3 bg-gray-800/50 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-royal focus:border-royal transition-colors text-white placeholder-gray-400"
-                    placeholder="Masukkan nama lengkap Anda"
+                    placeholder="Enter your full name"
                   />
                 </div>
 
@@ -184,13 +184,13 @@ const ContactForm = () => {
                     onChange={handleChange}
                     required
                     className="w-full px-4 py-3 bg-gray-800/50 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-royal focus:border-royal transition-colors text-white placeholder-gray-400"
-                    placeholder="nama@email.com"
+                    placeholder="name@email.com"
                   />
                 </div>
 
                 <div>
                   <label htmlFor="message" className="block text-sm font-semibold text-white mb-2">
-                    Pesan
+                    Message
                   </label>
                   <textarea
                     id="message"
@@ -200,7 +200,7 @@ const ContactForm = () => {
                     required
                     rows={5}
                     className="w-full px-4 py-3 bg-gray-800/50 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-royal focus:border-royal transition-colors resize-none text-white placeholder-gray-400"
-                    placeholder="Ceritakan tentang proyek atau ide yang ingin Anda diskusikan..."
+                    placeholder="Tell me about the project or idea you'd like to discuss..."
                   />
                 </div>
               </div>
@@ -216,10 +216,10 @@ const ContactForm = () => {
                     <svg className="animate-spin w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
                     </svg>
-                    <span>Mengirim...</span>
+                    <span>Sending...</span>
                   </span>
                 ) : (
-                  'Kirim Pesan'
+                  'Send Message'
                 )}
               </button>
 
@@ -227,7 +227,7 @@ const ContactForm = () => {
               {submitStatus === 'success' && (
                 <div className="p-4 bg-green-500/20 border border-green-500/30 rounded-lg backdrop-blur-sm">
                   <p className="text-green-400 font-medium">
-                    ✅ Pesan berhasil dikirim! Saya akan membalas secepatnya.
+                    ✅ Message sent successfully! I'll get back to you as soon as possible.
                   </p>
                 </div>
               )}
@@ -235,7 +235,7 @@ const ContactForm = () => {
               {submitStatus === 'error' && (
                 <div className="p-4 bg-red-500/20 border border-red-500/30 rounded-lg backdrop-blur-sm">
                   <p className="text-red-400 font-medium">
-                    ❌ Terjadi kesalahan. Silakan coba lagi atau hubungi langsung via email.
+                    ❌ An error occurred. Please try again or contact me directly via email.
                   </p>
                 </div>
               )}

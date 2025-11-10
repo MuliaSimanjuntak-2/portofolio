@@ -118,7 +118,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                   Project Screenshots
                 </h2>
                 <p className="text-gray-400 max-w-2xl mx-auto">
-                  Lihat tampilan dan fitur-fitur utama dari project ini
+                  View the interface and key features of this project
                 </p>
               </div>
               
@@ -147,31 +147,10 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                 
                 {/* Secondary Screenshots */}
                 <div className="space-y-4">
-                  {/* Mobile View */}
-                  <div className="relative group">
-                    <div className="absolute inset-0 bg-gradient-to-br from-royal/20 to-royal-light/10 rounded-xl opacity-0 group-hover:opacity-100 transition-all duration-500 blur-xl"></div>
-                    <div className="relative h-36 bg-gradient-to-br from-gray-800 via-gray-850 to-gray-900 rounded-xl overflow-hidden border border-white/10 group-hover:border-royal/40 transition-all duration-500">
-                      {project.screenshots?.mobile ? (
-                        <Image
-                          src={project.screenshots.mobile}
-                          alt={`${project.title} - Mobile View`}
-                          fill
-                          className="object-cover transition-transform duration-300 group-hover:scale-105"
-                        />
-                      ) : (
-                        <ScreenshotPlaceholder 
-                          projectSlug={project.slug}
-                          screenshotType="mobile"
-                          expectedPath={project.screenshots?.mobile}
-                        />
-                      )}
-                    </div>
-                  </div>
-                  
                   {/* Features Screenshot */}
                   <div className="relative group">
                     <div className="absolute inset-0 bg-gradient-to-br from-royal/20 to-royal-light/10 rounded-xl opacity-0 group-hover:opacity-100 transition-all duration-500 blur-xl"></div>
-                    <div className="relative h-36 bg-gradient-to-br from-gray-800 via-gray-850 to-gray-900 rounded-xl overflow-hidden border border-white/10 group-hover:border-royal/40 transition-all duration-500">
+                    <div className="relative h-72 bg-gradient-to-br from-gray-800 via-gray-850 to-gray-900 rounded-xl overflow-hidden border border-white/10 group-hover:border-royal/40 transition-all duration-500">
                       {project.screenshots?.features ? (
                         <Image
                           src={project.screenshots.features}
@@ -238,7 +217,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                   Tech Stack
                 </h2>
                 <p className="text-gray-400 max-w-2xl mx-auto">
-                  Teknologi dan tools yang digunakan dalam pengembangan project ini
+                  Technologies and tools used in developing this project
                 </p>
               </div>
               
@@ -265,7 +244,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                   Key Metrics
                 </h2>
                 <p className="text-gray-400 max-w-2xl mx-auto">
-                  Pencapaian dan hasil dari project ini
+                  Achievements and results from this project
                 </p>
               </div>
               
@@ -294,7 +273,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                     Challenges & Solutions
                   </h2>
                   <p className="text-gray-400 max-w-2xl mx-auto">
-                    Tantangan yang dihadapi dan solusi yang diterapkan dalam pengembangan project ini
+                    Challenges faced and solutions implemented in developing this project
                   </p>
                 </div>
                 
@@ -351,7 +330,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                   Project Links
                 </h2>
                 <p className="text-gray-400 max-w-2xl mx-auto">
-                  Akses langsung ke project dan source code
+                  Direct access to project and source code
                 </p>
               </div>
               

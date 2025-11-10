@@ -27,23 +27,23 @@ export const metadata: Metadata = {
   creator: "Mulia Simanjuntak",
   openGraph: {
     type: "website",
-    locale: "id_ID",
+    locale: "en_US",
     url: "http://localhost:3000",
-    title: "Nama Kamu - Portfolio",
+    title: "Mulia Simanjuntak - Portfolio",
     description: "Portfolio website showcasing my projects and skills as a student developer.",
-    siteName: "Nama Kamu Portfolio",
+    siteName: "Mulia Simanjuntak Portfolio",
     images: [
       {
         url: "/images/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Nama Kamu Portfolio",
+        alt: "Mulia Simanjuntak Portfolio",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Nama Kamu - Portfolio",
+    title: "Mulia Simanjuntak - Portfolio",
     description: "Portfolio website showcasing my projects and skills as a student developer.",
     images: ["/images/og-image.jpg"],
   },
@@ -66,12 +66,12 @@ export const metadata: Metadata = {
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Person",
-  name: "Nama Kamu",
+  name: "Mulia Simanjuntak",
   jobTitle: "Student & Web Developer",
   url: "https://your-portfolio.vercel.app",
   sameAs: [
-    "https://github.com/namakamu",
-    "https://linkedin.com/in/namakamu",
+    "https://github.com/MuliaSimanjuntak-2",
+    "https://linkedin.com/in/muliasimanjuntak",
   ],
   description: "A passionate student showcasing projects and skills in web development.",
 };
@@ -82,7 +82,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="id" className="scroll-smooth">
+    <html lang="en" className="scroll-smooth">
       <head>
         <script
           type="application/ld+json"

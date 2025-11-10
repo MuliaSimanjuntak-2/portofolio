@@ -72,7 +72,7 @@ const Hero = () => {
               <span className="text-gray-400 font-medium">Connect with me:</span>
               <div className="flex space-x-4">
                 <Link
-                  href="https://github.com/MuliaSimanjuntak"
+                  href="https://github.com/MuliaSimanjuntak-2"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="p-3 bg-gray-800/50 text-gray-400 hover:text-royal hover:bg-royal/20 rounded-xl transition-all duration-300 hover:scale-110 backdrop-blur-sm"

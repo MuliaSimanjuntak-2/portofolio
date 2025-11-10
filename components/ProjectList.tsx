@@ -18,8 +18,8 @@ const ProjectList = ({ projects }: ProjectListProps) => {
             Featured Projects
           </h2>
           <p className="text-lg text-gray-300 max-w-2xl mx-auto">
-            Berikut adalah beberapa project yang telah saya kerjakan. 
-            Setiap project menunjukkan kemampuan teknis dan kreativitas dalam menyelesaikan masalah.
+            Here are some projects I've worked on. 
+            Each project demonstrates technical skills and creativity in problem-solving.
           </p>
         </div>
 

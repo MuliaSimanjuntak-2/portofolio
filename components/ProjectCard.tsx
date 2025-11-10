@@ -43,20 +43,6 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
             </span>
             <div className="absolute inset-0 bg-gradient-to-r from-white/10 to-white/5 rounded-xl opacity-0 group-hover/btn:opacity-100 transition-all duration-300"></div>
           </Link>
-          <Link
-            href={project.live}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group/btn relative px-6 py-3 bg-white text-royal font-bold rounded-xl hover:bg-cream transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
-          >
-            <span className="relative z-10 flex items-center">
-              <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-              </svg>
-              Live Demo
-            </span>
-            <div className="absolute inset-0 bg-gradient-to-r from-royal/10 to-royal-light/10 rounded-xl opacity-0 group-hover/btn:opacity-100 transition-all duration-300"></div>
-          </Link>
         </div>
       </div>
 
