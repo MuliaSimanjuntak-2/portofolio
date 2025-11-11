@@ -38,6 +38,19 @@ const Skills = () => {
         "Postman",
       ],
     },
+    {
+      title: "Project Management",
+      skills: [
+        "Agile/Scrum",
+        "Jira",
+        "Trello",
+        "Notion",
+        "Slack",
+        "Microsoft Project",
+        "Team Leadership",
+        "Risk Management",
+      ],
+    },
   ];
 
   return (
@@ -59,13 +72,13 @@ const Skills = () => {
             Skills & Technologies
           </h2>
           <p className="text-lg text-gray-300 max-w-2xl mx-auto">
-            Here are the technologies and tools I master in web development. 
-            I continuously learn and develop skills to keep up with technological advances.
+            Here are the technologies, tools, and methodologies I master in web development and project management. 
+            I continuously learn and develop skills to keep up with technological advances and industry best practices.
           </p>
         </div>
 
         {/* Enhanced Skills Categories */}
-        <div className="grid lg:grid-cols-3 gap-10">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {skillCategories.map((category, categoryIndex) => (
             <div 
               key={categoryIndex} 
@@ -117,8 +130,8 @@ const Skills = () => {
               Always Learning
             </h3>
             <p className="text-gray-300 leading-relaxed mb-6">
-              Web technology continues to evolve rapidly, and I'm committed to continuously learning new things. 
-              Currently, I'm focusing on deepening my knowledge of the React ecosystem, cloud technologies, and best practices in web development.
+              Technology and project management methodologies continue to evolve rapidly, and I'm committed to continuously learning new things. 
+              Currently, I'm focusing on deepening my knowledge of the React ecosystem, cloud technologies, advanced project management practices, and best practices in web development.
             </p>
             <div className="flex flex-wrap justify-center gap-3">
               <span className="px-4 py-2 bg-royal/20 text-royal rounded-full text-sm font-medium border border-royal/30">
@@ -132,6 +145,12 @@ const Skills = () => {
               </span>
               <span className="px-4 py-2 bg-purple-500/20 text-purple-400 rounded-full text-sm font-medium border border-purple-500/30">
                 Testing
+              </span>
+              <span className="px-4 py-2 bg-orange-500/20 text-orange-400 rounded-full text-sm font-medium border border-orange-500/30">
+                PMP Certification
+              </span>
+              <span className="px-4 py-2 bg-pink-500/20 text-pink-400 rounded-full text-sm font-medium border border-pink-500/30">
+                DevOps
               </span>
             </div>
           </div>

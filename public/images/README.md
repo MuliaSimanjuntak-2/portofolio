@@ -7,7 +7,7 @@ This directory contains placeholder images for the portfolio website.
 1. `/images/og-image.jpg` - Open Graph image (1200x630)
 2. `/images/projects/ecommerce-preview.jpg` - E-commerce project screenshot
 3. `/images/projects/taskmanager-preview.jpg` - Task manager project screenshot  
-4. `/images/projects/weather-preview.jpg` - Weather app project screenshot
+4. `/images/projects/ticket-booking-preview.jpg` - Ticket Booking app project screenshot
 5. `/images/profile.jpg` - Profile photo (optional)
 
 ## Instructions:
