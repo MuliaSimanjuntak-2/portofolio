@@ -6,16 +6,19 @@ const ContactForm = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    message: ''
+    message: '',
+    website: '', // Honeypot field
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [formStartTime, setFormStartTime] = useState<number>(0);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
+    // Set start time when user first interacts with form
+    if (formStartTime === 0) {
+      setFormStartTime(Date.now());
+    }
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -23,31 +26,35 @@ const ContactForm = () => {
     setIsSubmitting(true);
     setSubmitStatus('idle');
 
+    // Time-based protection: form must be filled for at least 5 seconds
+    const submissionTime = Date.now();
+    const timeTaken = submissionTime - formStartTime;
+    
+    if (timeTaken < 5000) { // Less than 5 seconds
+      console.log('Form submitted too quickly - possible bot');
+      setSubmitStatus('error');
+      setIsSubmitting(false);
+      return;
+    }
+
     try {
-      // Send to our Resend API endpoint
-      const response = await fetch('/api/send-mail', {
+      const res = await fetch('/api/send-mail', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          message: formData.message,
-        }),
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
       });
 
-      const data = await response.json();
+      const data = await res.json();
 
-      if (response.ok) {
+      if (res.ok) {
         setSubmitStatus('success');
-        setFormData({ name: '', email: '', message: '' });
+        setFormData({ name: '', email: '', message: '', website: '' });
       } else {
-        console.error('Email sending error:', data.error);
+        console.error('Form submission error:', data.error);
         setSubmitStatus('error');
       }
-    } catch (error) {
-      console.error('Form submission error:', error);
+    } catch (err) {
+      console.error('Error submitting form:', err);
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);
@@ -55,207 +62,84 @@ const ContactForm = () => {
   };
 
   return (
-    <section id="contact" className="py-32 relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-br from-royal/10 via-transparent to-royal-light/5" />
-      
-      {/* Animated Background Elements */}
-      <div className="absolute top-20 left-10 w-40 h-40 bg-royal/10 rounded-full blur-xl animate-float" />
-      <div className="absolute bottom-20 right-10 w-56 h-56 bg-royal-light/5 rounded-full blur-2xl animate-pulse-glow" />
-      
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-        {/* Enhanced Section Header */}
-        <div className="text-center space-y-6 mb-20 animate-fade-in-up">
-          <div className="inline-flex items-center px-4 py-2 bg-royal/10 backdrop-blur-sm rounded-full border border-royal/20 text-royal-light font-medium text-sm">
-            <span className="w-2 h-2 bg-royal rounded-full mr-2 animate-pulse"></span>
-            Let's Connect
-          </div>
-          <h2 className="font-display font-bold text-4xl md:text-5xl lg:text-6xl bg-gradient-to-r from-white via-gray-200 to-gray-400 bg-clip-text text-transparent">
-            Get In Touch
-          </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            Have an interesting project or want to collaborate? 
-            Don't hesitate to contact me. Let's discuss our creative ideas!
-          </p>
-        </div>
+    <section id="contact" className="py-24 px-6 bg-black text-white">
+      <div className="max-w-3xl mx-auto space-y-6">
+        <h2 className="text-4xl font-bold text-center">Get In Touch</h2>
+        <p className="text-gray-400 text-center">
+          Have an idea, project, or collaboration in mind? Let’s talk!
+        </p>
 
-        <div className="grid lg:grid-cols-2 gap-12">
-          {/* Contact Info */}
-          <div className="space-y-8">
-            <div className="space-y-6">
-              <h3 className="font-display font-bold text-2xl text-white">
-                Let's Collaborate
-              </h3>
-              <p className="text-gray-300 leading-relaxed">
-                I'm always open to new opportunities, interesting projects, and discussions about technology. 
-                Do you have an idea you want to bring to life or looking for a developer for your team?
-              </p>
-            </div>
-
-            {/* Contact Methods */}
-            <div className="space-y-4">
-              <div className="flex items-center space-x-4">
-                <div className="w-12 h-12 bg-royal/20 rounded-lg flex items-center justify-center border border-royal/30">
-                  <svg className="w-6 h-6 text-royal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                  </svg>
-                </div>
-                <div>
-                  <p className="font-semibold text-white">Email</p>
-                  <a href="mailto:muliachristiangomgompsimanjuntak@mail.ugm.ac.id" className="text-royal hover:text-royal-light transition-colors">
-                    muliachristiangomgompsimanjuntak@mail.ugm.ac.id
-                  </a>
-                </div>
-              </div>
-
-              <div className="flex items-center space-x-4">
-                <div className="w-12 h-12 bg-royal/20 rounded-lg flex items-center justify-center border border-royal/30">
-                  <svg className="w-6 h-6 text-royal" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                  </svg>
-                </div>
-                <div>
-                  <p className="font-semibold text-white">LinkedIn</p>
-                  <a 
-                    href="https://www.linkedin.com/in/mulia-christian-g-p-simanjuntak-99733b338/" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="text-royal hover:text-royal-light transition-colors"
-                  >
-                    LinkedIn Profile
-                  </a>
-                </div>
-              </div>
-
-              <div className="flex items-center space-x-4">
-                <div className="w-12 h-12 bg-royal/20 rounded-lg flex items-center justify-center border border-royal/30">
-                  <svg className="w-6 h-6 text-royal" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                  </svg>
-                </div>
-                <div>
-                  <p className="font-semibold text-white">GitHub</p>
-                  <a 
-                    href="https://github.com/MuliaSimanjuntak-2" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="text-royal hover:text-royal-light transition-colors"
-                  >
-                    github.com/MuliaSimanjuntak-2
-                  </a>
-                </div>
-              </div>
-            </div>
-
-            {/* Response Time */}
-            <div className="p-6 bg-royal/20 rounded-lg border border-royal/30 backdrop-blur-sm">
-              <div className="flex items-center space-x-3">
-                <svg className="w-6 h-6 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-                <div>
-                  <p className="font-semibold text-white">Quick Response</p>
-                  <p className="text-sm text-gray-300">I usually reply within 24 hours</p>
-                </div>
-              </div>
-            </div>
+        <form onSubmit={handleSubmit} className="space-y-6">
+          <div>
+            <label className="block mb-2 font-semibold">Full Name</label>
+            <input
+              type="text"
+              name="name"
+              required
+              value={formData.name}
+              onChange={handleChange}
+              className="w-full px-4 py-3 rounded-lg bg-gray-800 border border-gray-600 focus:border-royal focus:ring-royal focus:ring-2 outline-none"
+              placeholder="Your full name"
+            />
           </div>
 
-          {/* Contact Form */}
-          <div className="bg-card-bg backdrop-blur-sm p-8 rounded-xl border border-card-border">
-            <form 
-              onSubmit={handleSubmit} 
-              className="space-y-6"
-            >
-              <div className="space-y-4">
-                <div>
-                  <label htmlFor="name" className="block text-sm font-semibold text-white mb-2">
-                    Full Name
-                  </label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 py-3 bg-gray-800/50 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-royal focus:border-royal transition-colors text-white placeholder-gray-400"
-                    placeholder="Enter your full name"
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="email" className="block text-sm font-semibold text-white mb-2">
-                    Email Address
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 py-3 bg-gray-800/50 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-royal focus:border-royal transition-colors text-white placeholder-gray-400"
-                    placeholder="name@email.com"
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="message" className="block text-sm font-semibold text-white mb-2">
-                    Message
-                  </label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    value={formData.message}
-                    onChange={handleChange}
-                    required
-                    rows={5}
-                    className="w-full px-4 py-3 bg-gray-800/50 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-royal focus:border-royal transition-colors resize-none text-white placeholder-gray-400"
-                    placeholder="Tell me about the project or idea you'd like to discuss..."
-                  />
-                </div>
-              </div>
-
-              {/* Submit Button */}
-              <button
-                type="submit"
-                disabled={isSubmitting}
-                className="w-full px-8 py-4 bg-royal text-white font-semibold rounded-lg hover:bg-royal-dark transition-all duration-200 hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
-              >
-                {isSubmitting ? (
-                  <span className="flex items-center justify-center space-x-2">
-                    <svg className="animate-spin w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
-                    </svg>
-                    <span>Sending...</span>
-                  </span>
-                ) : (
-                  'Send Message'
-                )}
-              </button>
-
-              {/* Status Messages */}
-              {submitStatus === 'success' && (
-                <div className="p-4 bg-green-500/20 border border-green-500/30 rounded-lg backdrop-blur-sm">
-                  <p className="text-green-400 font-medium">
-                    ✅ Message sent successfully! Your message has been delivered via Resend to my email inbox. I'll get back to you within 24 hours.
-                  </p>
-                </div>
-              )}
-
-              {submitStatus === 'error' && (
-                <div className="p-4 bg-red-500/20 border border-red-500/30 rounded-lg backdrop-blur-sm">
-                  <p className="text-red-400 font-medium">
-                    ❌ Email service unavailable. Please contact me directly at: 
-                    <a href="mailto:muliachristiangomgompsimanjuntak@mail.ugm.ac.id" className="underline ml-1 hover:text-red-300">
-                      muliachristiangomgompsimanjuntak@mail.ugm.ac.id
-                    </a>
-                  </p>
-                </div>
-              )}
-            </form>
+          <div>
+            <label className="block mb-2 font-semibold">Email Address</label>
+            <input
+              type="email"
+              name="email"
+              required
+              value={formData.email}
+              onChange={handleChange}
+              className="w-full px-4 py-3 rounded-lg bg-gray-800 border border-gray-600 focus:border-royal focus:ring-royal focus:ring-2 outline-none"
+              placeholder="name@email.com"
+            />
           </div>
-        </div>
+
+          <div>
+            <label className="block mb-2 font-semibold">Message</label>
+            <textarea
+              name="message"
+              rows={5}
+              required
+              value={formData.message}
+              onChange={handleChange}
+              className="w-full px-4 py-3 rounded-lg bg-gray-800 border border-gray-600 focus:border-royal focus:ring-royal focus:ring-2 outline-none"
+              placeholder="Write your message here..."
+            />
+          </div>
+
+          {/* Honeypot field - hidden from users, bots will fill it */}
+          <input
+            type="text"
+            name="website"
+            value={formData.website || ''}
+            onChange={handleChange}
+            style={{ display: 'none' }}
+            tabIndex={-1}
+            autoComplete="off"
+          />
+
+          <button
+            type="submit"
+            disabled={isSubmitting}
+            className="w-full py-3 rounded-lg bg-royal hover:bg-royal-dark font-semibold transition disabled:opacity-50"
+          >
+            {isSubmitting ? 'Sending...' : 'Send Message'}
+          </button>
+
+          {submitStatus === 'success' && (
+            <p className="text-green-400 text-center">
+             Message sent successfully! I’ll get back to you soon.
+            </p>
+          )}
+
+          {submitStatus === 'error' && (
+            <p className="text-red-400 text-center">
+              ❌ Failed to send message. Please ensure all fields are filled correctly and try again.
+            </p>
+          )}
+        </form>
       </div>
     </section>
   );
