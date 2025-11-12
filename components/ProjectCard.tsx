@@ -8,6 +8,12 @@ interface ProjectCardProps {
   project: Project;
 }
 
+// Helper function to get year consistently
+const getYear = (dateString: string) => {
+  const date = new Date(dateString);
+  return date.getFullYear();
+};
+
 const ProjectCard = ({ project }: ProjectCardProps) => {
   return (
     <div className="group relative bg-gradient-to-br from-white/5 to-white/[0.02] backdrop-blur-xl rounded-2xl shadow-2xl shadow-black/20 hover:shadow-royal/25 hover:shadow-2xl transition-all duration-500 overflow-hidden border border-white/10 hover:border-royal/40 hover:-translate-y-3 hover-lift">
@@ -55,7 +61,7 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
               {project.title}
             </h3>
             <span className="text-sm text-gray-200 font-medium">
-              {new Date(project.date).getFullYear()}
+              {getYear(project.date)}
             </span>
           </div>
           <p className="text-gray-100 leading-relaxed">

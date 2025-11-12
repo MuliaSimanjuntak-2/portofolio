@@ -125,3 +125,8 @@ html {
   transform: translateY(-8px) scale(1.02);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(65, 105, 225, 0.2);
 }
+
+/* Animation delays */
+.animation-delay-150 {
+  animation-delay: 150ms;
+}

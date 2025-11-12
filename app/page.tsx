@@ -6,6 +6,7 @@ import Skills from '@/components/Skills';
 import ContactForm from '@/components/ContactForm';
 import Footer from '@/components/Footer';
 import SimpleBackground from '@/components/SimpleBackground';
+import PhotographyButton from '@/components/PhotographyButton';
 
 export default async function Home() {
   const projects = await getAllProjects();
@@ -55,6 +56,9 @@ export default async function Home() {
             </div>
           </div>
         </section>
+
+        {/* Photography Portfolio Button */}
+        <PhotographyButton />
 
         <ProjectList projects={projects} />
         <Skills />
