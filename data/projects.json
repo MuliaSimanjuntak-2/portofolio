@@ -2,20 +2,15 @@
   {
     "id": "1",
     "slug": "e-commerce-website",
-    "title": "E-Commerce Website",
-    "short": "A modern e-commerce platform with shopping cart functionality and secure payment integration.",
-    "long": "This comprehensive e-commerce website was built using React and Node.js, featuring a responsive design, user authentication, shopping cart functionality, and secure payment processing with Stripe. The project includes an admin dashboard for inventory management, order tracking, and customer analytics. I implemented advanced features like product search, filtering, wishlist functionality, and email notifications for order confirmations.",
+    "title": "Coffee Shop and Plantation E-Commerce Website",
+    "short": "Sarponesia is a web-based platform that digitalizes coffee business management for efficient, secure, and integrated operations.",
+    "long": "Sarponesia project is designed as a web-based information system aimed at supporting the management and digitalization of Indonesia’s coffee business processes. The main goal of this project is to provide an integrated platform for administrators to manage products, services, articles, orders, and partnerships, while delivering an efficient user experience in purchasing and product reviewing. With structured management features such as product pages, service listings, articles, order processing, checkout, and reviews, the system seeks to enhance administrative efficiency, expand marketing reach, and foster direct interaction between service providers and customers. Overall, Sarponesia is developed to support the digital transformation of coffee-related MSMEs through a user-friendly, secure, and integrated approach.",
     "tech": ["React", "Node.js", "Express", "MongoDB", "Stripe", "Tailwind CSS"],
     "image": "/images/projects/ecommerce-preview.jpg",
     "repo": "https://github.com/MuliaSimanjuntak-2/ecommerce-website",
     "live": "https://ecommerce-demo.vercel.app",
     "date": "2024-03-15",
-    "role": "Full Stack Developer",
-    "metrics": {
-      "users": "500+ registered users",
-      "performance": "95% Lighthouse score",
-      "completion": "6 weeks development time"
-    },
+    "role": "Project Manager",
     "challenges": [
       "Implementing secure payment processing with Stripe",
       "Optimizing database queries for product search",
@@ -26,16 +21,7 @@
       "Implemented MongoDB indexing and aggregation pipelines",
       "Applied mobile-first design principles with Tailwind CSS"
     ],
-    "hasDetailPage": true,
-    "screenshots": {
-      "main": "/images/projects/ecommerce/main_interface.jpeg",
-      "features": "/images/projects/ecommerce/about-barista.jpeg",
-      "additional": [
-        "/images/projects/ecommerce/maps.jpeg",
-        "/images/projects/ecommerce/nota.jpeg",
-        "/images/projects/ecommerce/product-detail.jpg"
-      ]
-    }
+    "hasDetailPage": true
   },
   {
     "id": "2",
@@ -64,16 +50,7 @@
       "Implemented progressive data visualization with interactive charts",
       "Applied containerization and secure coding practices throughout"
     ],
-    "hasDetailPage": true,
-    "screenshots": {
-      "main": "/images/projects/penetration-system/main-dashboard.jpg",
-      "features": "/images/projects/penetration-system/vulnerability-scanner.jpg",
-      "additional": [
-        "/images/projects/penetration-system/security-reports.jpg",
-        "/images/projects/penetration-system/threat-detection.jpg",
-        "/images/projects/penetration-system/penetration-results.jpg"
-      ]
-    }
+    "hasDetailPage": true
   },
   {
     "id": "3",
@@ -104,15 +81,6 @@
       "Implemented responsive layouts with ConstraintLayout and Material Design",
       "Built robust offline-first architecture with Room and WorkManager"
     ],
-    "hasDetailPage": true,
-    "screenshots": {
-      "main": "/images/projects/ticket-booking/main-interface.jpg",
-      "features": "/images/projects/ticket-booking/seat-selection.jpg",
-      "additional": [
-        "/images/projects/ticket-booking/movie-listing.jpg",
-        "/images/projects/ticket-booking/payment-process.jpg",
-        "/images/projects/ticket-booking/ticket-qr.jpg"
-      ]
-    }
+    "hasDetailPage": true
   }
 ]

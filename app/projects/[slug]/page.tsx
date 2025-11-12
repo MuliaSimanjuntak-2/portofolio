@@ -5,6 +5,27 @@ import Image from 'next/image';
 import { getProjectBySlug, getProjectSlugs, formatDate } from '@/lib/projects';
 import SimpleBackground from '@/components/SimpleBackground';
 import ScreenshotPlaceholder from '@/components/ScreenshotPlaceholder';
+import ProjectImage from '@/components/ProjectImage';
+
+// Helper function to get screenshot titles based on filename
+function getScreenshotTitle(screenshotPath: string, index: number): string {
+  const filename = screenshotPath.split('/').pop()?.split('.')[0] || '';
+  
+  // E-commerce specific screenshots
+  if (filename.includes('maps')) return 'Location & Maps Feature';
+  if (filename.includes('nota')) return 'Receipt & Order Summary';
+  if (filename.includes('product-detail')) return 'Product Detail Page';
+  if (filename.includes('about-barista')) return 'About Barista Section';
+  
+  // Ticket booking specific screenshots
+  if (filename.includes('movie-listing')) return 'Movie Listings';
+  if (filename.includes('payment-process')) return 'Payment Processing';
+  if (filename.includes('ticket-qr')) return 'QR Code Tickets';
+  if (filename.includes('seat-selection')) return 'Seat Selection Interface';
+  
+  // Default titles
+  return `Feature View ${index + 1}`;
+}
 
 interface ProjectPageProps {
   params: Promise<{
@@ -127,7 +148,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             </section>
 
             {/* Tech Stack */}
-            <section className="space-y-12 animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
+            <section className="space-y-12 animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
               <div className="text-center space-y-4">
                 <h2 className="font-display font-bold text-3xl md:text-4xl bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
                   Tech Stack
@@ -155,7 +176,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
             {/* Challenges & Solutions */}
             {project.challenges && project.solutions && project.challenges.length > 0 && (
-              <section className="space-y-12 animate-fade-in-up" style={{ animationDelay: '0.6s' }}>
+              <section className="space-y-12 animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
                 <div className="text-center space-y-4">
                   <h2 className="font-display font-bold text-3xl md:text-4xl bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
                     Challenges & Solutions
@@ -212,7 +233,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             )}
 
             {/* Source Code */}
-            <section className="space-y-12 animate-fade-in-up" style={{ animationDelay: '0.8s' }}>
+            <section className="space-y-12 animate-fade-in-up" style={{ animationDelay: '0.5s' }}>
               <div className="text-center space-y-4">
                 <h2 className="font-display font-bold text-3xl md:text-4xl bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
                   Source Code
